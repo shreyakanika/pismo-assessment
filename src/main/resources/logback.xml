@@ -20,9 +20,9 @@
     </appender>
 
     <appender name="RollingFile-Appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log-path}/prismo.log</file>
+        <file>${log-path}/pismo.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log-path}/prismo.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+            <fileNamePattern>${log-path}/pismo.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
             <maxFileSize>50MB</maxFileSize>
             <maxHistory>7</maxHistory>
         </rollingPolicy>
