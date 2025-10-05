@@ -32,6 +32,66 @@ The application will be accessible at http://localhost:8080.
 
 The application will be accessible at http://localhost:8080.
 
+## Endpoints
+
+### Add account
+- The request body should receive a document number that uniquely identifies the account owner.
+- The response body should return the account object if successful, or an error message otherwise.
+```
+Request:
+    POST /accounts
+    {
+        "document_number": "12345678900"
+    }
+```
+```
+Response:
+    {
+        "account_id": 1,
+        "document_number": "12345678900"
+    }
+```
+
+### Get account
+- The endpoint should receive the accountId as a query parameter.
+- An invalid accountId value should return an error message.
+```
+Request:
+GET /accounts/:accountId
+```
+```
+Response:
+    {
+        "account_id": 1,
+        "document_number": "12345678900"
+    }
+```
+
+### Create transactions
+- The request body should receive the account owner ID, the operation type and the amount for the transaction;
+- The system should validate whether the existing account owner and operation type were informed.
+- The response body should return the transaction object if successful, or an error message otherwise.
+```
+Request:
+    POST /transactions
+    {
+        "account_id": 1,
+        "operation_type_id": 4,
+        "amount": 123.45
+    }
+```
+```
+Response:
+    {
+        "transaction_id": 1,
+        "account_id": 1,
+        "operation_type_id": 4,
+        "event_date": "2025-09-30T09:33:51.073059",
+        "amount": 123.45
+    }
+```
+
+
 ## API Documentation (OpenAPI / Swagger)
 
 The API is documented using SpringDoc (OpenAPI 3).
